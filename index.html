@@ -4,11 +4,22 @@
   <title>Calculator</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
-  <style></style>
-  <script src=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    function numberClick(val) {
+      // var AC = ".display-box".text("_");
+      var currentDisplay = $(".display-box").attr("value");
+      $(".display-box").attr("value", currentDisplay + val);
+      // $(".display-box").attr("value", AC);
+    }
+
+    $("").click(function () {
+      $("").empty("");
+    });
+  </script>
   <body>
     <div class="calculator">
-      <input type="button" class="display-box" id="result" />
+      <input type="button" class="display-box" id="result" value="" />
       <input type="button" class="clear-button" value="AC" id="clear" />
       <input type="button" class="percentage-btn" value="%" id="percentage" />
       <input type="button" class="multiple-button" value="*" id="multiple" />
@@ -16,17 +27,83 @@
       <input type="button" class="sum-button" value="+" id="sum" />
       <input type="button" class="subtract-button" value="-" id="subtract" />
       <input type="button" class="total-btn" value="=" id="total" />
-      <input type="button" class="one-button" value="1" id="one" />
-      <input type="button" class="two-btn" value="2" id="two" />
-      <input type="button" class="three-btn" value="3" id="three" />
-      <input type="button" class="four-btn" value="4" id="four" />
-      <input type="button" class="five-btn" value="5" id="five" />
-      <input type="button" class="six-btn" value="6" id="six" />
-      <input type="button" class="seven-btn" value="7" id="seven" />
-      <input type="button" class="eight-btn" value="8" id="eight" />
-      <input type="button" class="nine-btn" value="9" id="nine" />
-      <input type="button" class="zero-btn" value="0" id="zero" />
-      <input type="button" class="doublezero-btn" value="00" id="dzero" />
+      <input
+        type="button"
+        class="one-button"
+        value="1"
+        id="one"
+        onclick="numberClick(1)"
+      />
+      <input
+        type="button"
+        class="two-btn"
+        value="2"
+        id="two"
+        onclick="numberClick(2)"
+      />
+      <input
+        type="button"
+        class="three-btn"
+        value="3"
+        id="three"
+        onclick="numberClick(3)"
+      />
+      <input
+        type="button"
+        class="four-btn"
+        value="4"
+        id="four"
+        onclick="numberClick(4)"
+      />
+      <input
+        type="button"
+        class="five-btn"
+        value="5"
+        id="five"
+        onclick="numberClick(5)"
+      />
+      <input
+        type="button"
+        class="six-btn"
+        value="6"
+        id="six"
+        onclick="numberClick(6)"
+      />
+      <input
+        type="button"
+        class="seven-btn"
+        value="7"
+        id="seven"
+        onclick="numberClick(7)"
+      />
+      <input
+        type="button"
+        class="eight-btn"
+        value="8"
+        id="eight"
+        onclick="numberClick(8)"
+      />
+      <input
+        type="button"
+        class="nine-btn"
+        value="9"
+        id="nine"
+        onclick="numberClick(9)"
+      />
+      <input
+        type="button"
+        class="zero-btn"
+        value="0"
+        id="zero"
+        onclick="numberClick(0)"
+      />
+      <input
+        type="button"
+        class="doublezero-btn"
+        value="00"
+        id="dzero"
+        onclick="numberClick('00')"
+      />
       <input type="button" class="dot-btn" value="." id="dot" />
       <input type="button" class="delete-btn" value="DLT" id="dlt-btn" />
     </div>
