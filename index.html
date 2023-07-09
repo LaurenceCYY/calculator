@@ -6,27 +6,56 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script>
+    //Add Number function ---
     function numberClick(val) {
-      // var AC = ".display-box".text("_");
       var currentDisplay = $(".display-box").attr("value");
       $(".display-box").attr("value", currentDisplay + val);
-      // $(".display-box").attr("value", AC);
     }
-
-    $("").click(function () {
-      $("").empty("");
-    });
+    //All Clear function
+    function numberClear(currentDisplay) {
+      $(".display-box").val("");
+    }
+    //Calculate function
+    function calculate(currentDisplay) {
+      var p = ".display-box".getElementById("result").value;
+      var q = eval(p);
+      ".display-box".getElementById("result").value = q;
+    }
   </script>
   <body>
     <div class="calculator">
       <input type="button" class="display-box" id="result" value="" />
-      <input type="button" class="clear-button" value="AC" id="clear" />
+      <input
+        type="button"
+        class="clear-button"
+        value="AC"
+        id="clear"
+        onclick="numberClear()"
+      />
       <input type="button" class="percentage-btn" value="%" id="percentage" />
-      <input type="button" class="multiple-button" value="*" id="multiple" />
-      <input type="button" class="divided-button" value="/" id="divided" />
+      <input
+        type="button"
+        class="multiple-button"
+        value="*"
+        id="multiple"
+        onclick="numberClick(*)"
+      />
+      <input
+        type="button"
+        class="divided-button"
+        value="/"
+        id="divided"
+        onclick="numberClick(/)"
+      />
       <input type="button" class="sum-button" value="+" id="sum" />
       <input type="button" class="subtract-button" value="-" id="subtract" />
-      <input type="button" class="total-btn" value="=" id="total" />
+      <input
+        type="button"
+        class="total-btn"
+        value="="
+        id="total"
+        onclick="calculate"
+      />
       <input
         type="button"
         class="one-button"
