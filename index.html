@@ -7,19 +7,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script>
     //Add Number function ---
+    var number = "";
+    var arrayNumber = [];
+    var arrayOperator = [];
     function numberClick(val) {
       var currentDisplay = $(".display-box").attr("value");
       $(".display-box").attr("value", currentDisplay + val);
+      number += val;
     }
     //All Clear function
     function numberClear(currentDisplay) {
       $(".display-box").val("");
     }
     //Calculate function
-    function calculate(currentDisplay) {
-      var p = ".display-box".getElementById("result").value;
-      var q = eval(p);
-      ".display-box".getElementById("result").value = q;
+    function calculate() {
+      arrayNumber.push(number);
+      console.log(arrayNumber);
+    }
+
+    function operator(symbol) {
+      var currentDisplay = $(".display-box").attr("value");
+      $(".display-box").attr("value", currentDisplay + symbol);
+      arrayNumber.push(number);
+      console.log(number);
+      number = "";
+      arrayOperator.push(symbol);
+      console.log(arrayOperator);
     }
   </script>
   <body>
@@ -35,26 +48,39 @@
       <input type="button" class="percentage-btn" value="%" id="percentage" />
       <input
         type="button"
+        class="sum-button"
+        value="+"
+        id="sum"
+        onclick="operator('+')"
+      />
+      <input
+        type="button"
+        class="subtract-button"
+        value="-"
+        id="subtract"
+        onclick="operator('-')"
+      />
+      <input
+        type="button"
         class="multiple-button"
         value="*"
         id="multiple"
-        onclick="numberClick(*)"
+        onclick="operator('*')"
       />
       <input
         type="button"
         class="divided-button"
         value="/"
         id="divided"
-        onclick="numberClick(/)"
+        onclick="operator('/')"
       />
-      <input type="button" class="sum-button" value="+" id="sum" />
-      <input type="button" class="subtract-button" value="-" id="subtract" />
+
       <input
         type="button"
         class="total-btn"
         value="="
         id="total"
-        onclick="calculate"
+        onclick="calculate()"
       />
       <input
         type="button"
